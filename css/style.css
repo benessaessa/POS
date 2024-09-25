@@ -17,7 +17,7 @@
     flex-direction: column;
     height: calc(100vh - 80px);
 }
-.table-container {
+.content-elements .table-container {
     height: calc(100vh - 200px);
     flex-grow: 1; /* This makes the table take all available space */
     overflow-y: auto; /* Allows scrolling if the table content is too large */
