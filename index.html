@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام نقاط البيع (POS)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- Top Section -->
+     <div class="header">
+       <div class="row bg-success text-white p-2 align-items-center fixed-top">
+         <div class="col-4">
+           <h5 class="px-4">رقم الفاتورة<span class="pe-3 fw-bold text-decoration-underline">#123456</span></h5>
+         </div>
+         <div class="col-8">
+           <div class="d-flex justify-content-between">
+             <h3 class="text-center">نظام نقاط البيع - Avenius MM</h3>
+           </div>
+         </div>
+       </div>
+     </div>
+
+    <!-- Main Content Area -->
+    
+    <div class="row">
+      <!-- Right Section with Buttons -->
+      <div class="col-lg-4">
+        <div class="side-content">
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-danger py-3 w-100" data-bs-toggle="modal" data-bs-target="#newInvoiceModal">إلغاء فاتورة </button>
+            <button class="btn btn-warning py-3 w-100"> مرتجع مبيعات</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button type="button" class="btn btn-primary w-100"> فتح الدرج</button>
+            <button class="btn btn-light py-3 w-100">طباعة فاتورة سابقة</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-success py-3 w-100"> نافذة المعلومات</button>
+            <button class="btn btn-secondary py-3 w-100"> تبديل مستخدم</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-warning py-3 w-100"> تعديل كمية المادة </button>
+            <button class="btn btn-light py-3 w-100">  شاشة الحماية</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-danger py-3 w-100" data-bs-toggle="modal" data-bs-target="#newInvoiceModal"> تغيير كلمة المرور</button>
+            <button class="btn btn-success py-3 w-100"> بحث مواد متقدم</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-dark py-3 w-100">مرجع</button>
+            <button class="btn btn-danger py-3 w-100">إغلاق الصندوق </button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-primary py-3 w-100">إضافة عميل</button>
+            <button class="btn btn-info py-3 w-100">تحديد شخص</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-info py-3 w-100"> كشف حساب عميل</button>
+            <button class="btn btn-danger opacity-50 py-3 w-100"> حسم الفاتورة</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-warning py-3 w-100"> مرتجع حجز </button>
+            <button class="btn btn-light py-3 w-100"> Transfere Out</button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-light py-3 w-100"> Transfere in</button>
+            <button class="btn btn-warning opacity-75 py-3 w-100">  Requested Order </button>
+          </div>
+          <div class="d-flex gap-2 pb-2">
+            <button class="btn btn-info py-3 w-100"> أرصدة مواد الفروع</button>
+          </div>
+        </div>
+      </div>
+      <!-- Center Table Section -->
+      <div class="col-lg-8">
+        <div class="content-elements h-100 d-flex flex-column">
+          <div class="table-container flex-grow-1 overflow-auto">
+            <p class="mb-1">من فضلك قم بالإختيار</p class="mb-1">
+            <input type="radio" class="btn-check" name="options-outlined" id="client" autocomplete="off" checked>
+            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="client">عميل</label>
+
+            <input type="radio" class="btn-check" name="options-outlined" id="teller" autocomplete="off">
+            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="teller">بائع</label>
+
+            <input type="radio" class="btn-check" name="options-outlined" id="change" autocomplete="off">
+            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="change">تبديل مادة</label>
+            <table class="table table-bordered text-end mb-0 mt-3">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>العنصر</th>
+                  <th>الكمية</th>
+                  <th>السعر</th>
+                  <th>الهدية</th>
+                  <th>الخصم</th>
+                  <th>الإجمالي</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>عنصر 1</td>
+                  <td>1</td>
+                  <td>75545.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>عنصر 2</td>
+                  <td>2</td>
+                  <td>8.99</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>9.44</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>عنصر 3</td>
+                  <td>3</td>
+                  <td>8899</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>6679</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>عنصر 4</td>
+                  <td>1</td>
+                  <td>7.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr>
+                <!-- <tr>
+                  <td>1</td>
+                  <td>عنصر 1</td>
+                  <td>1</td>
+                  <td>7.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>عنصر 2</td>
+                  <td>2</td>
+                  <td>8.99</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>9.44</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>عنصر 3</td>
+                  <td>3</td>
+                  <td>8899</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>6679</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>عنصر 4</td>
+                  <td>1</td>
+                  <td>7.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>عنصر 1</td>
+                  <td>1</td>
+                  <td>7.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>عنصر 2</td>
+                  <td>2</td>
+                  <td>8.99</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>9.44</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>عنصر 3</td>
+                  <td>3</td>
+                  <td>8899</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>6679</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>عنصر 4</td>
+                  <td>1</td>
+                  <td>7.75</td>
+                  <td>
+                    <input class="form-control" placeholder="الهدية" type="text">
+                  </td>
+                  <td>
+                    <input class="form-control" placeholder="الخصم" type="text">
+                  </td>
+                  <td>7.75</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+          <div class="pay-now text-center p-3">
+            <button class="btn btn-success px-5 py-3" data-bs-toggle="modal" data-bs-target="#payNow">إدفع الآن</button>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Modal for New Invoice -->
+    <div class="modal fade" id="newInvoiceModal" tabindex="-1" aria-labelledby="newInvoiceModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100" id="newInvoiceModalLabel">فاتورة جديدة</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Modal Body Content -->
+            <div class="table-container flex-grow-1 overflow-auto">
+              <table class="table table-bordered text-center mb-0">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>العنصر</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>الإجمالي</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>عنصر 1</td>
+                    <td>1</td>
+                    <td>7.75</td>
+                    <td>7.75</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+            <button type="button" class="btn btn-primary">حفظ الفاتورة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Pay Now -->
+    <div class="modal fade" id="payNow" tabindex="-1" aria-labelledby="pay" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100" id="pay"> إدفع الآن </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="#">
+              <label>إختر طريقة الدفع</label>
+              <select class="form-select mt-2 py-3" aria-label="Default select example">
+                <option selected>الدفع بواسطة الفيزا</option>
+                <option value="1">الدفع نقدا</option>
+                <option value="2">الدفع بواسطة جي مارت</option>
+                <option value="3">الدفع بواسطة فودافون كاش</option>
+              </select>
+            </form>
+            <!-- Modal Body Content -->
+            <div class="receipt bg-light">
+              <!-- Header -->
+              <div class="receipt-header">
+                  <h5>  إسم المؤسسة</h5>
+                  <p>6332 شارع الأعمال، جناح 528</p>
+                  <p>بالو ألتو، كاليفورنيا 94301</p>
+                  <p>575-1628095</p>
+                  <p>الجمعة 07/04/2017 11:36 ص</p>
+              </div>
+          
+              <!-- Transaction Details -->
+              <table class="table table-borderless receipt-table">
+                  <tbody>
+                      <tr>
+                          <td>معرّف التاجر:</td>
+                          <td class="text-left">9hqjxvufdr</td>
+                      </tr>
+                      <tr>
+                          <td>معرّف الجهاز:</td>
+                          <td class="text-left">11111</td>
+                      </tr>
+                      <tr>
+                          <td>معرّف العملية:</td>
+                          <td class="text-left">#e6d598ef</td>
+                      </tr>
+                      <tr>
+                          <td>النوع:</td>
+                          <td class="text-left">ائتمان</td>
+                      </tr>
+                  </tbody>
+              </table>
+          
+              <!-- Purchase Details -->
+              <h6 class="text-center my-3">عملية شراء</h6>
+              <table class="table table-borderless receipt-table">
+                  <tbody>
+                      <tr>
+                          <td>رقم البطاقة:</td>
+                          <td class="text-left">XXXXXXXXXXXX0041</td>
+                      </tr>
+                      <tr>
+                          <td>وضع الإدخال:</td>
+                          <td class="text-left">تمرير البطاقة</td>
+                      </tr>
+                      <tr>
+                          <td>نوع البطاقة:</td>
+                          <td class="text-left">DISCOVER</td>
+                      </tr>
+                      <tr>
+                          <td>الاستجابة:</td>
+                          <td class="text-left">موافق</td>
+                      </tr>
+                      <tr>
+                          <td>رمز الموافقة:</td>
+                          <td class="text-left">819543</td>
+                      </tr>
+                  </tbody>
+              </table>
+          
+              <!-- Totals -->
+              <div class="receipt-total">
+                  <table class="table table-borderless receipt-table">
+                      <tbody>
+                          <tr>
+                              <td>المجموع الفرعي:</td>
+                              <td class="text-left">USD$ 25.23</td>
+                          </tr>
+                          <tr>
+                              <td>الإكرامية:</td>
+                              <td class="text-left">3.78</td>
+                          </tr>
+                          <tr class="border-top">
+                              <td><strong>الإجمالي:</strong></td>
+                              <td class="text-left"><strong>USD$ 29.01</strong></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          
+              <!-- Footer -->
+              <div class="receipt-footer">
+                  <p>شكرًا لدعمك</p>
+                  <p>للأعمال المحلية!</p>
+                  <p class="small-text">شكرًا لك</p>
+              </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+            <button type="button" class="btn btn-primary">حفظ الفاتورة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

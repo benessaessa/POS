@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+*{
+    font-family: "Cairo", sans-serif;
+    font-optical-sizing: auto;
+}
+.header{
+    height: 80px;
+}
+.side-content,.content-elements{
+    height: calc(100vh - 90px);
+    overflow: auto;
+    padding: 0px 12px;
+}
+.content-elements{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+}
+.table-container {
+    height: calc(100vh - 200px);
+    flex-grow: 1; /* This makes the table take all available space */
+    overflow-y: auto; /* Allows scrolling if the table content is too large */
+}
+.pay-now{
+    margin-top: auto; /* Ensures the button stays at the bottom of the container */
+}
+.receipt {
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px dashed #000;
+    background-color: #fff;
+    font-family: monospace;
+}
+
+.receipt-header, .receipt-footer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.receipt h5, .receipt p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.receipt-table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.receipt-table th, .receipt-table td {
+    padding: 3px 0;
+}
+
+.receipt-total {
+    border-top: 1px dashed #000;
+    padding-top: 10px;
+}
+
+.small-text {
+    font-size: 12px;
+    text-align: center;
+}
+table .form-control{
+    max-width: 140px;
+}
+.table thead th:last-child{
+    min-width: 140px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
