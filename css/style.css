@@ -18,7 +18,7 @@
     height: calc(100vh - 80px);
 }
 .content-elements .table-container {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 230px);
     flex-grow: 1; /* This makes the table take all available space */
     overflow-y: auto; /* Allows scrolling if the table content is too large */
 }
@@ -86,4 +86,8 @@ table .form-control{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+  .parcode{
+    width: 200px;
+    border: 2px solid rgb(5, 5, 163);
   }

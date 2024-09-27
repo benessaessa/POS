@@ -79,14 +79,21 @@
         <div class="content-elements h-100 d-flex flex-column">
           <div class="table-container flex-grow-1 overflow-auto">
             <p class="mb-1">من فضلك قم بالإختيار</p class="mb-1">
-            <input type="radio" class="btn-check" name="options-outlined" id="client" autocomplete="off" checked>
-            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="client">عميل</label>
+              <div class="d-flex gap-4">
+                <div>
+                  <input type="radio" class="btn-check" name="options-outlined" id="client" autocomplete="off" checked>
+                  <label class="btn btn-outline-primary fw-bold px-5 py-2" for="client">عميل</label>
+      
+                  <input type="radio" class="btn-check" name="options-outlined" id="teller" autocomplete="off">
+                  <label class="btn btn-outline-primary fw-bold px-5 py-2" for="teller">بائع</label>
+      
+                  <input type="radio" class="btn-check" name="options-outlined" id="change" autocomplete="off">
+                  <label class="btn btn-outline-primary fw-bold px-5 py-2" for="change">تبديل مادة</label>
+                  
+                </div>
+                <input type="text" class="form-control parcode" placeholder="باركود" name="" id="">
 
-            <input type="radio" class="btn-check" name="options-outlined" id="teller" autocomplete="off">
-            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="teller">بائع</label>
-
-            <input type="radio" class="btn-check" name="options-outlined" id="change" autocomplete="off">
-            <label class="btn btn-outline-primary fw-bold px-5 py-2" for="change">تبديل مادة</label>
+              </div>
             <table class="table table-bordered text-end mb-0 mt-3">
               <thead>
                 <tr>
@@ -259,7 +266,17 @@
               </tbody>
             </table>
           </div>
-          <div class="pay-now text-center p-3">
+          <div class="pay-now text-center p-3 border-top d-flex gap-5">
+            <div class="d-flex gap-5 align-items-center">
+              <div class="d-flex gap-1">
+                <p class="mb-1 fw-bold"> عدد المنتجات :</p>
+                <p class="mb-0 text-primary fw-bold">777</p>
+              </div>
+              <div class="d-flex gap-1">
+                <p class="mb-1 fw-bold"> الإجمالي :</p>
+                <p class="mb-0 text-primary fw-bold">90</p>
+              </div>
+            </div>
             <button class="btn btn-success px-5 py-3" data-bs-toggle="modal" data-bs-target="#payNow">إدفع الآن</button>
           </div>
         </div>
